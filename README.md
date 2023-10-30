@@ -26,7 +26,7 @@ $ cd ~/your-workspace/src
 $ git clone https://github.com/SangPhamCV/ROS-MQTT-Project.git
 $ cd ..
 $ catkin_make
-$ exit
+```
 
 ## Usage
 
