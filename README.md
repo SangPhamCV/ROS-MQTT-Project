@@ -2,17 +2,12 @@
 
 A brief description of your project goes here.
 
-![Project Logo](/images/logo.png)
-
 ## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -31,6 +26,7 @@ $ cd ~/your-workspace/src
 $ git clone https://github.com/SangPhamCV/ROS-MQTT-Project.git
 $ cd ..
 $ catkin_make
+$ exit
 
 ## Usage
 
