@@ -1,6 +1,4 @@
-# Project Name
-
-A brief description of your project goes here.
+# ROS-MQTT Project
 
 ## Table of Contents
 
