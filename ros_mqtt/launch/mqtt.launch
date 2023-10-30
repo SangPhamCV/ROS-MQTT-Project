@@ -9,17 +9,11 @@
     <param name="topic_mqtt_pose"        value="robot/pose" />
     <param name="topic_mqtt_path"        value="robot/path" />    
 
-    <node name="run_service" pkg="ros_mqtt" type="service_path_server.py" output="screen">
-    </node>
-    <node name="point_path" pkg="ros_mqtt" type="points_make_path.py" output="screen">
-    </node>
-    <node name="robot_pose" pkg="ros_mqtt" type="robot_pose.py" output="screen">
-    </node>
-    <node name="calc" pkg="ros_mqtt" type="cal_distance.py" output="screen">
-    </node>   
-    <node name="mqtt_subscriber_node" pkg="ros_mqtt" type="mqtt_to_ros.py" output="screen">
-    </node>   
-    <node name="mqtt_subscrnode" pkg="ros_mqtt" type="send_goal.py" output="screen">
-    </node>
+    <node name="run_service" pkg="ros_mqtt" type="service_path_server.py" output="screen"/>
+    <node name="point_path" pkg="ros_mqtt" type="points_make_path.py" output="screen"/>
+    <node name="robot_pose" pkg="ros_mqtt" type="robot_pose.py" output="screen"/>
+    <node name="calc" pkg="ros_mqtt" type="cal_distance.py" output="screen"/>
+    <node name="mqtt_subscriber_node" pkg="ros_mqtt" type="mqtt_to_ros.py" output="screen"/>
+    <node name="mqtt_subscrnode" pkg="ros_mqtt" type="send_goal.py" output="screen"/>
 
 </launch>
