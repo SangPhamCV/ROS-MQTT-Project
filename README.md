@@ -8,9 +8,7 @@ A brief description of your project goes here.
 
 - [Overview](#overview)
 - [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -18,32 +16,23 @@ A brief description of your project goes here.
 
 ## Overview
 
-Provide an introductory overview of your project, explaining what it does, its purpose, and its significance. You can also include a project logo or banner.
+This package implements ros-mqtt communication.
 
 ## Features
 
-List the key features of your project in a clear and concise manner.
+- Feature 1: Subscribe to the data goal plan of the robot.
+- Feature 2: Publish the robot's position and all the points that make up the path from the robot's current position to the goal plan.
+- Feature 3: Calculate the estimated/actual distance.
 
-- Feature 1: Description
-- Feature 2: Description
-- Feature 3: Description
-
-## Getting Started
-
-Explain how to get started with your project. Include information about prerequisites and installation.
-
-### Prerequisites
-
-List any software, libraries, or tools that users need to install or have before using your project.
-
-- Prerequisite 1
-- Prerequisite 2
-
-### Installation
-
-Provide step-by-step instructions on how to install and set up your project.
+## Installation
 
 ```bash
-$ git clone https://github.com/yourusername/your-repo.git
-$ cd your-repo
-$ npm install
+$ cd ~/your-workspace/src
+$ git clone https://github.com/SangPhamCV/ROS-MQTT-Project.git
+$ cd ..
+$ catkin_make
+
+## Usage
+
+```bash
+$ roslaunch ros-mqtt mqtt.launch
