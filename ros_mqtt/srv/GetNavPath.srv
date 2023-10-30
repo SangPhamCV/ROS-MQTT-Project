@@ -1,0 +1,3 @@
+nav_msgs/Path GetNavPath
+---
+nav_msgs/Path get_path
