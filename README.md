@@ -18,3 +18,9 @@ Explain how to install your project, including any dependencies or prerequisites
 $ git clone https://github.com/yourusername/your-repo.git
 $ cd your-repo
 $ npm install
+
+import yourmodule
+
+result = yourmodule.do_something()
+print(result)
+
