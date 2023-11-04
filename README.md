@@ -29,4 +29,4 @@ $ catkin_make
 ## Usage
 
 ```bash
-$ roslaunch ros-mqtt mqtt.launch
+$ roslaunch ros_mqtt mqtt.launch
