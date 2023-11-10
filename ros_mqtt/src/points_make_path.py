@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# THIS SCRIPT CALLS A SERVICE THAT HANDLES ALL THE POINTS, MAKING UP THE PATH 
-
+# THIS SCRIPT CALLS A SERVICE THAT HANDLES ALL THE POINTS, MAKING UP THE PATH
+ 
 import rospy
 from ros_mqtt.srv import GetNavPath, GetNavPathRequest
 from move_base_msgs.msg import MoveBaseActionGoal

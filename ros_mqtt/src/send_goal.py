@@ -4,7 +4,7 @@
 
 import rospy
 import actionlib
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Float32MultiArray
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 import math
 
@@ -16,7 +16,7 @@ class MoveBaseClientNode:
         self.theta_value = None
 
         rospy.init_node('movebase_client_py')
-        rospy.Subscriber('ros_topic', Float64MultiArray, self.callback)
+        rospy.Subscriber('/goal_point', Float32MultiArray, self.callback)
 
         self.client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
         self.client.wait_for_server()
@@ -24,7 +24,6 @@ class MoveBaseClientNode:
     def callback(self, data):
 
         received_list = data.data
-        rospy.loginfo("Received list: %s", received_list)
         self.x_value, self.y_value, self.theta_value = received_list
 
     def movebase_client(self, value_x, value_y, value_theta):
@@ -55,11 +54,15 @@ class MoveBaseClientNode:
             if all(getattr(self, attr) is not None for attr in ['x_value', 'y_value', 'theta_value']):
                 
                 try:
-                    result = self.movebase_client(self.x_value, self.y_value, self.theta_value)
-                    if result:
-                        rospy.loginfo("Goal execution done!")
+                    run_request = input("Execute the path (OK)? ").lower()
+                    if run_request == "ok":
+                        result = self.movebase_client(self.x_value, self.y_value, self.theta_value)
+                        if result:
+                            rospy.loginfo("Goal execution done!")
+                        else:
+                            rospy.loginfo("Goal execution failed!")
                     else:
-                        rospy.loginfo("Goal execution failed!")
+                        rospy.loginfo("Path execution canceled.")
                 except rospy.ROSInterruptException:
                     rospy.loginfo("Navigation test finished.")
 
