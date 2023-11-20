@@ -6,8 +6,9 @@
 
     <param name="mqtt_sub_points"        value="robot/send_points" />
     <param name="mqtt_pub_waypoints"        value="robot/waypoints" />
-    <param name="mqtt_pub_pose"        value="robot/update_pose" />
+    <param name="mqtt_pub_pose"        value="robot/pose" />
     <param name="mqtt_pub_estimate"        value="robot/estimate" />    
+    <param name="mqtt_sub_move"        value="robot/move" />    
 
     <node name="waypoints" pkg="ros_mqtt" type="waypoints.py" output="screen"/>    
     <node name="calc" pkg="ros_mqtt" type="cal_distance.py" output="screen"/>   
