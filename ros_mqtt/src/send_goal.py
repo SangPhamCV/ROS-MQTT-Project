@@ -5,7 +5,7 @@ import actionlib
 from std_msgs.msg import Float32MultiArray
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 import math
-from define_mqtt import DefineMqtt  # Import the DefineMqtt module
+from define_mqtt import DefineMqtt
 
 class MoveBaseClientNode:
     def __init__(self):
@@ -36,8 +36,8 @@ class MoveBaseClientNode:
     def on_mqtt_message(self, client, userdata, msg):
         self.run_request = msg.payload.decode()
 
-    def movebase_client(self, value_x, value_y, value_theta):
-        self.theta_radian = math.pi/180 * value_theta
+    def movebase_client(self, value_x, value_y, value_theta): # move base function
+        self.theta_radian = math.pi/180 * value_theta        # convert degree to radian
         self.z_value = math.sin(self.theta_radian/2)
         self.w_value = math.cos(self.theta_radian/2)
 
@@ -65,12 +65,12 @@ class MoveBaseClientNode:
 
     def run(self):
         while not rospy.is_shutdown():
-            if all(getattr(self, attr) is not None for attr in ['x_value', 'y_value', 'theta_value']):
+            if all(getattr(self, attr) is not None for attr in ['x_value', 'y_value', 'theta_value']): # make sure points data is not None
                 try:
                     self.run_request = None
                     print("Execute the path (start)? ")
                     while self.run_request is None:
-                        rospy.sleep(0.1)
+                        rospy.sleep(0.1)        # wait for subscribe mqtt request
                     if self.run_request.lower() == "start":
                         result = self.movebase_client(self.x_value, self.y_value, self.theta_value)
                     else:
