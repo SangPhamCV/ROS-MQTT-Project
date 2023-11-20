@@ -25,7 +25,7 @@ def callback(path_msg):
     global path_length
     path_length = 0
 
-    for i in range(len(path_msg.poses) - 1):
+    for i in range(len(path_msg.poses) - 1):    # calculate distance fomular
         position_a_x = path_msg.poses[i].pose.position.x
         position_b_x = path_msg.poses[i+1].pose.position.x
         position_a_y = path_msg.poses[i].pose.position.y
