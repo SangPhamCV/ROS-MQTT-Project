@@ -47,7 +47,7 @@ def amcl_callback(data):
     }
     pose_data_json = json.dumps(pose_data) 
     mqtt.mqtt_client.publish(mqtt_pub_pose, pose_data_json)
-
+# the function generate a path connecting two points
 def plan_path(start, goal):
     try:
         rospy.wait_for_service('/move_base/NavfnROS/make_plan')
@@ -67,14 +67,14 @@ def plan_path(start, goal):
     try:
         plan = plan_service(start_pose, goal_pose, 0.0)
         waypoints = plan.plan.poses
-        waypoints_dict = {}  
+        waypoints_list = []
         for i, waypoint in enumerate(waypoints):
             waypoint_info = {
                 "x": round(waypoint.pose.position.x, 3),
                 "y": round(waypoint.pose.position.y, 3)
             }
-            waypoints_dict[i] = waypoint_info 
-        return waypoints_dict
+            waypoints_list.append(waypoint_info)
+        return waypoints_list
     except rospy.ServiceException as e:
         print(f"Service call failed: {e}")
 
