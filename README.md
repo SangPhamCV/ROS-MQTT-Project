@@ -17,6 +17,7 @@ This package implements ros-mqtt communication.
 - Feature 2: Publish the robot's position and all the points that make up the path from the robot's current position to the goal plan.
 - Feature 3: Calculate the estimated/actual distance.
 - Feature 4: Generate a path connecting any two points.
+- Feature 5: Publish sensor data to MQTTT.
 
 ## Installation
 
